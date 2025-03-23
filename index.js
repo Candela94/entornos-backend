@@ -3,10 +3,16 @@
 import { PORT, DOMAIN } from "./config/config.js";
 import express from 'express';
 import router from "./routes/index.routes.js";
-
+import cors from 'cors'
 
 
 const app = express();
+
+app.use(cors({
+    origin:'http://localhost:5173',
+    methods:['GET', 'POST'],
+    allowedHeaders:['Content-Type']
+}))
 
 
 app.use(express.json());
